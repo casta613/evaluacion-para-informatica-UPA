@@ -16,3 +16,19 @@
     color: black;
     
 }
+.form{
+    width: 25%;
+    margin-left: 35%;
+    margin-top: 8%;
+    padding: 15px;
+    border: 1px solid;
+    text-align: center;
+    background-color: gray;
+
+}
+input {
+    width: 95%;
+    height: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
