@@ -1,7 +1,10 @@
 import { useEffect,useState } from 'react'
 import {Guardar} from '../api/Fetch'
+import { useNavigate } from 'react-router-dom'
 
 function Formulario(){
+
+    const navigate = useNavigate()
 
     const [usuario,setUsuario]=useState({
         nombre:'',
@@ -24,25 +27,40 @@ function Formulario(){
     function handle(e){
         const {name,value}=e.target
         if(name === 'fechaNacimiento'){
-            
+            console.log(value)
             const edadCalculada =calcularEdad(value)
+            const [año, mes, dia] = value.split('-');
+            const fecha = `${dia}-${mes}-${año}`;
+            console.log(fecha)
+
             setEdad(edadCalculada)
             setUsuario((usuario)=>({
                 ...usuario,
-                edad:edadCalculada
+                edad:edadCalculada,[name]:fecha
             }))
+
           
-        }
+        }else{
+            console.log(value)
+
         setUsuario((usuario)=>({
             ...usuario,
             [name]:value
         }))
     }
+    }
 
     async function enviar(e){
         e.preventDefault()
         console.log(usuario)
-        //await Guardar('',usuario)
+        const res= await Guardar('http://localhost:3000/guardar_usuario/',usuario)
+        console.log(res.usuarioId)
+        if(res.mensaje){
+            alert(res.mensaje)
+        }else{
+            alert('usuario creado con el id '+res.usuarioId)
+            navigate('/')
+        }
     }
 
 

@@ -23,3 +23,9 @@ add constraint fk_estado_usuario foreign key (EstadoUsuarioId) references Estado
 INSERT INTO EstadoUsuarioestadousuario (titulo,clave) values ("Activo","activo");
 INSERT INTO EstadoUsuario (titulo,clave) values ("Baja Permanente","baja");
 
+insert into evaluacion_eduardo_castaneda.usuario (nombre,fecha,telefono,correo,creacion,EstadoUsuarioId) values ('EDUARDO CASTANEDA','1998-08-08','54856584','EDUARDO@GMAIL.COM',NOW() - INTERVAL 1 DAY,1);
+insert into evaluacion_eduardo_castaneda.usuario (nombre,fecha,telefono,correo,creacion,EstadoUsuarioId) values ('ALEJANDRO CACERES','1998-08-08','58569586','ALEJANDRO@GMAIL.COM',NOW() - INTERVAL 1 DAY,1);
+
+insert into evaluacion_eduardo_castaneda.usuario (nombre,fecha,telefono,correo,creacion,EstadoUsuarioId) values ('JULIO SANCHEZ','1996-06-12','45856558','JULIO@GMAIL.COM',NOW() - INTERVAL 1 MONTH,2);
+insert into evaluacion_eduardo_castaneda.usuario (nombre,fecha,telefono,correo,creacion,EstadoUsuarioId) values ('MARCO VAZQUES','1985-06-20','48577898','MARCO@GMAIL.COM',NOW()- INTERVAL 1 MONTH,2);
+
